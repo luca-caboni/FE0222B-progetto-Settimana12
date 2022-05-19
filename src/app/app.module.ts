@@ -1,30 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar/navbar.component';
+import { NavbarComponent } from '../app/navbar/navbar.component';
+import { AuthModule } from '../app/auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthComponent } from './auth/auth.component';
-import { SignupComponent } from './features/signup/signup.component';
-import { LoginComponent } from './features/login/login.component';
-import { AppRoutingModule } from './app-routing/app-routing.module';
-import { FavouritesComponent } from './features/favourites/favourites.component';
+import { MatIconModule } from '@angular/material/icon';
+
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    AuthComponent,
-    SignupComponent,
-    LoginComponent,
-    FavouritesComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, NavbarComponent],
+  imports: [BrowserModule, AppRoutingModule, AuthModule, HttpClientModule, BrowserAnimationsModule, MatIconModule],
+  bootstrap: [AppComponent],
 })
+
 export class AppModule { }
