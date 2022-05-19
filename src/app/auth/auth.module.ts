@@ -5,6 +5,7 @@ import { SignupComponent } from '../features/signup/signup.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './token.interceptor'
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
   providers:[
     {
       provide:HTTP_INTERCEPTORS,
-      useClass:TokenInterceptor,
+      useClass: TokenInterceptor,
       multi:true
     }
   ]

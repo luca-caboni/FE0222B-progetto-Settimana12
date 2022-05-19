@@ -15,13 +15,17 @@ export class AuthService {
 
   jwtHelper = new JwtHelperService();
   URL = 'http://localhost:4201';
+
+
   private authSubject = new BehaviorSubject<null | AuthData>(null);
+
+
   user$ = this.authSubject.asObservable();
   isLoggedIn$ = this.user$.pipe(map((user) => !!user));
 
 
-
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient,
+    private router: Router) {
     this.restoreUser();
   }
 
