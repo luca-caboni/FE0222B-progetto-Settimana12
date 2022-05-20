@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="container bg-dark mt-5 p-5 rounded">
+  <div class="row justify-content-center">
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+      {{ errorMessage }}
+    </div>
+    <form #form="ngForm" (ngSubmit)="onsubmit(form)">
+      <h1 class="text-white">Login</h1>
+      <div class="form-group">
+        <label for="email" class="text-white mb-2">Inserisci l'email</label>
+        <input ngModel name="email" class="form-control mb-2" type="email" id="email" />
+      </div>
+      <div class="form-group">
+        <label for="pass" class="text-white mb-2">Inserisci la password</label>
+        <input ngModel name="password" class="form-control mb-2" type="password" id="pass" />
+      </div>
+      <div class="row justify-content-center">
+        <button [routerLink]="['/movies']" class="btn btn-primary m-3 bg-danger border-0 fs-3"
+          [disabled]="isLoading" type="submit">
+          Accedi
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </button>
+      </div>
+    </form>
+  </div>
+  <p class="text-white">
+    Oppure <a class="text-white mx-2" [routerLink]="['/signup']">Registrati qui</a>
+  </p>
+</div>

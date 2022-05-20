@@ -9,16 +9,15 @@ import { AuthData, SignupData } from '../models/auth';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthService {
+
+
   autologoutTimer: any;
-
-
   jwtHelper = new JwtHelperService();
-  URL = 'http://localhost:4201';
-
+  baseURL = 'http://localhost:4201';
 
   private authSubject = new BehaviorSubject<null | AuthData>(null);
-
 
   user$ = this.authSubject.asObservable();
   isLoggedIn$ = this.user$.pipe(map((user) => !!user));
@@ -46,7 +45,7 @@ export class AuthService {
   }
 
   login(data: { email: string; password: string }) {
-    return this.http.post<AuthData>(`${this.URL}/login`, data).pipe(
+    return this.http.post<AuthData>(`${this.baseURL}/login`, data).pipe(
       tap((val) => {
         console.log(val);
       }),
@@ -64,14 +63,14 @@ export class AuthService {
 
   signup(data: SignupData) {
     return this.http
-      .post(`${this.URL}/register`, data)
+      .post(`${this.baseURL}/users`, data)
       .pipe(catchError(this.errors));
   }
 
   logout() {
     this.authSubject.next(null);
-    this.router.navigate(['/']);
     localStorage.removeItem('user');
+    this.router.navigate(['/']);
     if (this.autologoutTimer) {
       clearTimeout(this.autologoutTimer);
     }
@@ -86,14 +85,14 @@ export class AuthService {
 
   private errors(err: any) {
     switch (err.error) {
+      case 'Cannot find user':
+        return throwError('Utente non trovato');
+        break;
+        case 'Email format is invalid':
+        return throwError('Email in formato non valido');
+        break;
       case 'Email and password are required':
         return throwError('email e password sono obbligatorie');
-        break;
-      case 'Cannot find user':
-        return throwError('Utente non esiste');
-        break;
-      case 'Email format is invalid':
-        return throwError('Email in formato non valido');
         break;
       case 'Email already exists':
         return throwError('Utente già registrato con la stessa email');
