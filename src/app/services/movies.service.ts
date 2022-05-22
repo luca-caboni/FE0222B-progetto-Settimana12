@@ -5,7 +5,7 @@ import { Favourite } from 'src/app/models/favourite';
 import {  take } from 'rxjs/operators';
 import { AuthData } from '../models/auth';
 import { AuthService } from './auth.service';
-import { lastValueFrom } from 'rxjs';
+import { Observable } from 'rxjs/';
 
 @Injectable({
   providedIn: 'root',
@@ -17,20 +17,13 @@ export class MovieService {
   favourites: Movie[] | undefined;
   liked: boolean = false;
   favouritesCounter = 0;
+  baseURL = 'http://localhost:4201';
 
 
   constructor(private http: HttpClient, private authSrv: AuthService) {}
 
-  async getMovies(): Promise<void> {
-    const user: AuthData = (await this.authSrv.user$
-      .pipe(take(1))
-      .toPromise()) as AuthData;
-    const movies = await lastValueFrom(this.http
-      .get<Movie[]>('http://localhost:4201/api/movies-popular'))
-    this.movies = movies;
-    if (!this.favourites) {
-      this.getFavourite();
-    }
+  getMovies():Observable<Movie[]> {
+    return  this.http.get<Movie[]>(`${this.baseURL}/movies-popular`);
   }
 
   async addFavorite(movie: Movie) {

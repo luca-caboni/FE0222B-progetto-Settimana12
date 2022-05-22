@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movies.service'
 import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 import { Movie } from '../../models/movie';
 
 @Component({
@@ -10,24 +11,12 @@ import { Movie } from '../../models/movie';
 })
 export class MoviesComponent implements OnInit {
 
-  movies = this.movieSrv.movies;
+  movies!: Movie[] | undefined;
+  sub!: Subscription;
 
   constructor(private movieSrv: MovieService, private http: HttpClient) { }
 
   ngOnInit(): void {
-    setInterval(() => {
-      this.movies = this.movieSrv.movies;
-    }, 20);
-    if (!this.movies) {
-      this.movieSrv.getMovies();
+      this.sub = this.movieSrv.getMovies().subscribe(movies => this.movies = movies);
     }
   }
-
-  async like(movie: Movie) {
-    await (await (this.movieSrv.addFavorite(movie))).toPromise();
-  }
-
-  unlike(movie: Movie) {
-    this.movieSrv.removeFavourite(movie);
-  }
-}

@@ -12,7 +12,6 @@ import { AuthData, SignupData } from '../models/auth';
 
 export class AuthService {
 
-
   autologoutTimer: any;
   jwtHelper = new JwtHelperService();
   baseURL = 'http://localhost:4201';
@@ -44,7 +43,7 @@ export class AuthService {
     this.autoLogout(expirationDate);
   }
 
-  login(data: { email: string; password: string }) {
+  login(data:AuthData) {
     return this.http.post<AuthData>(`${this.baseURL}/login`, data).pipe(
       tap((val) => {
         console.log(val);
@@ -85,10 +84,10 @@ export class AuthService {
 
   private errors(err: any) {
     switch (err.error) {
-      case 'Cannot find user':
+      case 'Can\'t find user':
         return throwError('Utente non trovato');
         break;
-        case 'Email format is invalid':
+        case 'Email format is not valid':
         return throwError('Email in formato non valido');
         break;
       case 'Email and password are required':
