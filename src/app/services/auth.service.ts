@@ -82,6 +82,20 @@ export class AuthService {
     }, expMs);
   }
 
+  getUserInfo(){
+    let info;
+    this.user$.subscribe(user => info = user?.user);
+    return info;
+  }
+
+  getUserId(){
+    let loggedUser = this.getUserInfo();
+    if(loggedUser != undefined){
+      return loggedUser['id'];
+    }
+    return 0;
+  }
+
   private errors(err: any) {
     switch (err.error) {
       case 'Can\'t find user':

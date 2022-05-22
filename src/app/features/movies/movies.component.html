@@ -1,12 +1,25 @@
 <div class="container ">
   <div class="row justify-content-between">
-    <div *ngFor="let movie of movies" class="card mt-5 mb-5 p-3 bg-dark text-white rounded movies_card">
-      <img class="img-fluid rounded" srcset="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" />
-      <div class="card-body">
-        <h4 class="card-title">{{ movie.title }}</h4>
-        <div class="card-text">
+    <div class="row" *ngIf="movies else NoData">
+      <div *ngFor="let movie of movies" class="card mt-5 mb-5 p-3 bg-dark text-white rounded movies_card">
+        <img class="img-fluid rounded" srcset="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" />
+        <div class="card-body">
+          <h4 class="card-title">{{ movie.title }}</h4>
+          <div class="card-text">
+          </div>
+          <mat-icon [ngClass]="findFavourites(movie.id) == true ? 'liked' : ''" aria-hidden="false"
+              (click)="findFavourites(movie.id) == false ? liked(movie.id) : disliked(movie.id)">
+            favorite
+          </mat-icon>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #NoData>
+  <div class="container d-flex justify-content-center mt-5">
+    <div class="spinner-border" role="status"></div>
+  </div>
+</ng-template>
+

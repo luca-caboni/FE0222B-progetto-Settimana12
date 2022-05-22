@@ -17,7 +17,7 @@ const routes: Route[] = [
     path: 'favourites',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./features/favourites/favourites.module').then((m) => m.FavouritesModule)
+      import('./features/users/users.module').then((m) => m.FavouritesModule)
   }]
 
   @NgModule({

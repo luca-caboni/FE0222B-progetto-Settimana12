@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { MoviesComponent } from '../movies/movies.component'
 import { AuthGuard } from 'src/app/auth/auth.guard';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [MoviesComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)]
+  imports: [CommonModule,  MatIconModule, RouterModule.forChild(routes)]
 })
 
 export class MoviesModule { }
