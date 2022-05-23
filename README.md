@@ -1,10 +1,10 @@
-# FE0222BProgettoSettimana12
+# FE0222BProgettoSettimana12 - Made a Movies Dashboard, with JWT auth
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm run fullstack` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
