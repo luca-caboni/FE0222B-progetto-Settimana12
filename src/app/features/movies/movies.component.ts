@@ -15,7 +15,7 @@ import { Favourite } from '../../models/favourite';
 export class MoviesComponent implements OnInit {
 
   movies!: Movie[] | undefined;
-  favourites!: Favourite[];
+  public favourites!: Favourite[];
   sub!: Subscription;
 
   constructor(private movieSrv: MovieService, private authSrv: AuthService, private http: HttpClient) { }

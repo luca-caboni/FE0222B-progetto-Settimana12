@@ -14,10 +14,10 @@ const routes: Route[] = [
   },
 
   {
-    path: 'favourites',
+    path: 'users',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./features/users/users.module').then((m) => m.FavouritesModule)
+      import('./features/users/users.module').then((m) => m.UsersModule)
   }]
 
   @NgModule({

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users.component';
 import { AuthGuard } from 'src/app/auth/auth.guard';
 import { FormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card'
 
 const routes: Routes = [
   {
@@ -16,6 +17,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [UsersComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), FormsModule],
+  imports: [CommonModule, RouterModule.forChild(routes), FormsModule, MatCardModule],
 })
-export class FavouritesModule {}
+export class UsersModule {}

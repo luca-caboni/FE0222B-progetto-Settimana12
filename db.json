@@ -5,41 +5,6 @@
       "password": "$2a$10$SmgrR2x18eeoJMFtk9N9FORmSTDG0ToOtqOS0Ik0jgiRWoAqe7sT2",
       "name": "nicola toledo",
       "id": 1
-    },
-    {
-      "email": "mario@gmail.com",
-      "password": "$2a$10$YEMZeszaThfKF0sq3o8mRu2sT.vajtRaE1e3gM.fIimXhTgNG72Ye",
-      "name": "mario",
-      "surname": "mario",
-      "id": 2
-    },
-    {
-      "email": "prova@gmail.com",
-      "password": "$2a$10$sowuMAiYC0JhvQ76VJvzweyf3D6eUxuNg0cPSzhI74hx6IJNLJD1q",
-      "name": "asdasdsda",
-      "surname": "asdsdsa",
-      "id": 3
-    },
-    {
-      "email": "ciu@gmail.com",
-      "password": "$2a$10$oi5x75bBr/NEx14S63yKeOk6dzBDxq19o9uj2vzDc/.LsywVjpdM2",
-      "name": "Burba",
-      "surname": "aaa",
-      "id": 4
-    },
-    {
-      "email": "pippo@gmail.com",
-      "password": "$2a$10$otfZctEgBvB1.zfh7W.q6e0HzwayvHHYEt55cji397ONoEuCFV7Be",
-      "name": "ewrfgdfgfdg",
-      "surname": "sdsdsd",
-      "id": 5
-    },
-    {
-      "email": "gabuba@gmail.com",
-      "password": "$2a$10$g5HYWg5wHHYjDjwA.FXKqOjjRRHDaxISTlk54FuvFRRUBHc0.I17.",
-      "name": "giovannui",
-      "surname": "pipa",
-      "id": 6
     }
   ],
   "favorites": [
@@ -52,26 +17,6 @@
       "userId": 1,
       "movieId": 460465,
       "id": 5
-    },
-    {
-      "userId": 2,
-      "movieId": 460465,
-      "id": 6
-    },
-    {
-      "userId": 2,
-      "movieId": 578701,
-      "id": 7
-    },
-    {
-      "userId": 2,
-      "movieId": 567189,
-      "id": 8
-    },
-    {
-      "userId": 2,
-      "movieId": 615457,
-      "id": 9
     }
   ],
   "genres": [

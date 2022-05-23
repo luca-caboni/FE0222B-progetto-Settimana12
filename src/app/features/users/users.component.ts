@@ -17,4 +17,19 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
   }
-}
+
+  userName(){
+    let loggedUser = this.authSrv.getUserInfo();
+    if(loggedUser != undefined){
+      return loggedUser['name'];
+    }
+    return;
+  }
+
+  userEmail(){
+    let loggedUser = this.authSrv.getUserInfo();
+    if(loggedUser != undefined){
+      return loggedUser['email'];
+    }
+    return;
+  }}

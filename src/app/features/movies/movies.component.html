@@ -5,6 +5,8 @@
         <img class="img-fluid rounded" srcset="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" />
         <div class="card-body">
           <h4 class="card-title">{{ movie.title }}</h4>
+          <h4 class="card-description">- {{movie.release_date}}
+          </h4>
           <div class="card-text">
           </div>
           <mat-icon [ngClass]="findFavourites(movie.id) == true ? 'liked' : ''" aria-hidden="false"

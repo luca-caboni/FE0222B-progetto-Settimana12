@@ -10,7 +10,7 @@
           <a class="nav-link fs-4 mx-5" [routerLink]="['/movies']" routerLinkActive="active">Film</a>
         </li>
         <li class="nav-item me-5" *ngIf="isLoggedIn">
-          <a class="nav-link fs-4" [routerLink]="['/favourites']" routerLinkActive="active">Preferiti</a>
+          <a class="nav-link fs-4" [routerLink]="['/users']" routerLinkActive="active">Profilo</a>
         </li>
         <li class="nav-item" *ngIf="!isLoggedIn">
           <a class="nav-link active fs-4 mx-5" aria-current="page" [routerLink]="['/']" routerLinkActive="active"
